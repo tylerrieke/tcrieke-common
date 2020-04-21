@@ -27,6 +27,11 @@ public abstract class PlayerFactory <P extends Player>{
         return player;
     }
 
+    public synchronized P getPlayerIfExists(String ip) {
+        Connection connection = connectionFactory.getConnection(ip);
+        return connectionPlayerMap.get(connection);
+    }
+
     public Collection<P> getAllPlayers() {
         return connectionPlayerMap.values();
     }

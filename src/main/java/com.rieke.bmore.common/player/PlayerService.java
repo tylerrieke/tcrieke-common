@@ -19,6 +19,10 @@ public class PlayerService <P extends Player> {
         return playerFactory.getPlayer(ip);
     }
 
+    public P getPlayerIfExists(String ip) {
+        return playerFactory.getPlayerIfExists(ip);
+    }
+
     public void update(String ip, String name, String display) {
         P player = playerFactory.getPlayer(ip);
         player.setName(name);

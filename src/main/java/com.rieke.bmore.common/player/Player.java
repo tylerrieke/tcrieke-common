@@ -2,7 +2,9 @@ package com.rieke.bmore.common.player;
 
 import com.rieke.bmore.common.connection.Connection;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable{
     private Connection connection;
     private String name;
     private String display;
@@ -13,6 +15,13 @@ public class Player {
         this.name = name;
         this.display = display;
         active = false;
+    }
+
+    public Player(Connection connection, String name, String display, boolean active) {
+        this.connection = connection;
+        this.name = name;
+        this.display = display;
+        this.active = active;
     }
 
     public Connection getConnection() {

@@ -1,6 +1,8 @@
 package com.rieke.bmore.common.connection;
 
-public class Connection {
+import java.io.Serializable;
+
+public class Connection implements Serializable{
     private final String ip;
     private final long creationTime;
     private long lastUpdateTime;
@@ -10,6 +12,13 @@ public class Connection {
         this.ip = ip;
         blackListed = false;
         lastUpdateTime = creationTime = System.currentTimeMillis();
+    }
+
+    public Connection(String ip, long creationTime, long lastUpdateTime, boolean blackListed) {
+        this.ip = ip;
+        this.creationTime = creationTime;
+        this.lastUpdateTime = lastUpdateTime;
+        this.blackListed = blackListed;
     }
 
     public String getIp() {
